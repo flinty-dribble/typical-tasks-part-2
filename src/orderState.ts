@@ -1,5 +1,5 @@
 /* eslint no-shadow: 0 */
-type FIXME = Extract<OrderState, "initial" | "inWork" | "fullfilled">[]
+
 const orderStates = [
   "initial",
   "inWork",
@@ -9,6 +9,8 @@ const orderStates = [
 ] as const;
 
 type OrderState = typeof orderStates[number];
+
+type FIXME = Extract<OrderState, "initial" | "inWork" | "fullfilled">[];
 
 export const getUserOrderStates = (orderStates: OrderState[]): FIXME => {
   const filteredStates = [] as FIXME;
