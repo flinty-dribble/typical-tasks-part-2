@@ -1,6 +1,5 @@
 /* eslint no-shadow: 0 */
-type FIXME = ("initial" | "inWork" | "fullfilled")[];
-
+type FIXME = Extract<OrderState, "initial" | "inWork" | "fullfilled">[]
 const orderStates = [
   "initial",
   "inWork",

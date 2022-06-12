@@ -30,7 +30,7 @@ type Order =
       fullfillmentDate: Date;
     };
 
-type FIXME = { state: "initial" } | { state: "inWork" } | null;
+type FIXME = Extract<Order, { state: "initial" | "inWork" }> | null;
 export const filterOnlyInitialAndInWorkOrder = (order: Order): FIXME => {
   if (order.state === "initial" || order.state === "inWork") {
     return order;
