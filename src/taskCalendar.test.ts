@@ -10,6 +10,7 @@ import {
   filterOfDate,
   filterOfStatus,
   filterOfTag,
+  getJSONdb,
 } from "./taskCalendar";
 
 describe("task calendar", () => {
@@ -32,7 +33,16 @@ describe("task calendar", () => {
     <p class="date">02.03.2022</p>
     <p class="status">inWork</p>
     <p class="tag">school</p>`;
-    expect(await get(task)).toBe(task);
+    expect(await get("math", task)).toBe(task.innerHTML);
+  });
+
+  it("test of read", async () => {
+    const task = document.createElement("div");
+    task.innerHTML = `<p class="text">homework</p>
+    <p class="date">02.03.2022</p>
+    <p class="status">inWork</p>
+    <p class="tag">school</p>`;
+    expect(await getJSONdb(task)).toBe(task);
   });
 
   it("test of update", async () => {

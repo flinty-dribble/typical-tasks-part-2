@@ -56,5 +56,8 @@
   "lint-staged": {
     "*.js": "eslint --fix",
     "*.{js,css,md}": "prettier --write"
+  },
+  "dependencies": {
+    "node-json-db": "^1.5.0"
   }
 }
